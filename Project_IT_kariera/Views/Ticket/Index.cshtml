@@ -1,0 +1,35 @@
+﻿@using Project_IT_kariera.Data.Migrations
+@using Microsoft.AspNetCore.Identity
+@using Project_IT_kariera.Models;
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model List<Project_IT_kariera.Models.Event>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            
+            <th>Name</th>
+            <th>Description</th>
+            <th>Images</th>
+            <th>Date</th>
+            <th> <a class="btn btn-primary btn-user btn-block" asp-area="" asp-controller="Event" asp-action="Add">Get Ticket</a></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var @event in Model)
+        {
+                    <tr>
+                       
+                        <td>@@event.Name</td>
+                        <td>@@event.Description</td>
+                        <td>@@event.Image</td>
+                        <td>@@event.Date</td>
+                        
+                    </tr>
+        }
+    </tbody>
+</table>

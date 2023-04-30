@@ -1,0 +1,42 @@
+﻿@using Project_IT_kariera.Data.Migrations
+@using Microsoft.AspNetCore.Identity
+@using System.Collections.Generic;
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<style>
+    body {
+        background: linear-gradient(to bottom, white, blue);
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+@model List<Project_IT_kariera.Models.Event>
+
+<table class="table">
+
+    <thead>
+        <tr>
+           
+            <th>Name</th>
+           
+            
+            <th>Date</th>
+            <th> <a class="btn btn-primary btn-user btn-block" asp-area="" asp-controller="Event" asp-action="Confrim">Get Ticket</a></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var project in Model)
+        {
+            <tr>
+                
+                <td>@project.Name</td>
+               
+               
+                <td>@project.Date</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

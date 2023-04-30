@@ -1,0 +1,47 @@
+﻿@using Project_IT_kariera.Data.Migrations
+@using Microsoft.AspNetCore.Identity
+@using Project_IT_kariera;
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model List<IdentityUser>
+<style>
+    body {
+        background: linear-gradient(to bottom, white, blue);
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var project in Model)
+        {
+                <tr>
+                    <td>@project.Id</td>
+                    <td>@project.UserName</td>
+                @if (project.UserName == "Admin1@gmail.com")
+                {
+                                <td>Admin</td>
+                }
+                else
+                {
+                        <td>User</td>
+                }
+                        <td><button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="User">Delete</button></td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+
